@@ -1,0 +1,265 @@
+//Drop Database.
+use <dbName>
+show collections //Optional command to see the tables
+db.dropDatabase(); //Delete the database.
+
+//Create a database.
+use sliit //untill we add collections it won't show in show in show dbs.
+
+//Create a collection
+db.createCollection('students');
+
+
+//insert data into a collection (Insert single data.)
+db.students.insert({
+	title: 'Post One',
+	body: 'Body of the post one',
+	category: 'News',
+	likes: 4,
+	tags: ['news', 'events'],
+	user: {
+		name: 'John Doe',
+		status: 'author'
+	},
+	date: Date()
+})
+
+//Insert multiple data at once.
+/* No need to have the same data model syntax as the other data type.*/
+db.students.insertMany([
+	{
+		title: 'Post Two',
+		body: 'Body of the post two',
+		category: 'Technology',
+		date: Date()
+	},
+
+	{
+		title: 'Post Three',
+		body: 'Body of the post Three',
+		category: 'Mathamatics',
+		date: Date()
+	},
+
+	{
+		title: 'Post Four',
+		body: 'Body of the post Four',
+		category: 'Science',
+		date: Date()
+	},
+
+]);
+
+//Get all the data in database.
+db.students.find().pretty(); //Pretty will provide the details in readable format
+
+//Get specific data
+db.students.find({ category: "News"}).pretty();
+
+//Sorting data when getting.
+db.students.find().sort({ title: 1}).pretty();
+
+//Counting the number of details in the query output.
+db.students.find().limit(2);
+/*IMP# - we can chain these suffixes as in Javascript*/
+
+//ForEach with find().
+db.students.find().forEach(function(doc){ print('Blog Post:' + doc.title) });
+
+//FindOne usage 
+db.students.findOne({category: 'News'});
+
+//Update data in database. --> This method is deprecated.
+db.students.update({ title: 'Post Two'}, 
+	{
+		title: 'Post Two',
+		body: 'New Post 2 body',
+		date: Date()
+	},
+	{
+		upsert: true 
+	}
+);
+
+/*
+	When using the $set keywords it will keep all the fields that are not getting update
+	Similar to altering data.
+*/
+
+//New Method of updating a value in a document.
+db.students.updateOne(
+    { title : "Post Two" }, 
+    { $set: {body: "New Post 2 Body", date: Date()} },
+    { upsert: true }
+);
+//Updating the value of a attribute --> Alternative Method.
+db.User.update(
+   { name: "John" },
+   { $set:
+      { 
+        subject: "New Value"
+      }
+   }
+)
+
+//Increment integer number values in the database.
+db.students.updateOne({title: 'Post One'}, {$inc: {likes: 2}});
+
+//Rename a attribute
+db.students.update({title: 'Post One'}, {$rename: {likes: 'Views'}});
+
+//Deleting a post using remove keyword
+db.students.remove({ title: 'Post Four'})
+
+//sub documenting --> when finding also we can use the . to nest into each other.
+db.students.update({ title: 'Post One'},
+	{
+		$set: {
+			comments: [
+				{
+					user: 'Mary Williams',
+					body: 'Comment One',
+					date: Date()
+				},
+
+				{
+					user: 'Harry Potter',
+					body: 'Comment Two',
+					date: Date()
+				}
+			]
+		}
+	}
+)
+
+//Search something with attribute in nested section.
+db.students.find({
+	comments: {
+		$elemMatch: {
+			user: 'Mary Williams'
+		}
+	}
+});
+
+//Searching function in Mongo.
+/*Before starting search with a query we have to create an Index*/
+db.students.createIndex({ title: 'text'})
+
+/*Using the previous query we can search content*/
+db.students.find({ $text: {
+	$search : "\"Post T\"" }
+}).pretty()
+
+//Comparing a integer attribute we can get greater than contents
+db.students.find({ Views: { $gt: 3}})
+
+//Getting less than contents.
+db.students.find({ Views: { $lt: 10}})
+
+/* there are other keywords such as $lte, $gte -> less than or equal and greater than or equal */
+
+//Delete an Attribute
+db.User.update(
+    {},
+    { 
+        $unset : { 
+            "subject" : 1 
+        } 
+    },
+    {
+        multi: true
+    }
+);
+
+
+//Adding a Attribute to the object
+db.User.update(
+    {name: "John"},
+    { 
+        $set : { 
+            "subject" : 1 
+        } 
+    },
+    {
+        multi: true
+    }
+);
+
+//How to add a item to an Array in object MongoDB
+/*
+	Old values will not get deleted with this method.
+*/
+db.User.update(
+      { "name": "John" },
+      {
+          $push: {
+              subject: "Distributed Computing"
+          }
+      }
+  );
+
+//Adding elements to the array with extra searching parameters.
+db.User.update(
+      { "name": "Smith",
+      	"isActive": true	
+       },
+      {
+          $push: {
+              subject: "Distributed Computing"
+          }
+      }
+  );
+
+//Removing elements to the array with extra searching parameters.
+db.User.update(
+      { "name": "Smith",
+      	"isActive": true	
+       },
+      {
+          $pull: {
+              subject: "Distributed Computing"
+          }
+      }
+  );
+
+
+//Adding data to the MongoDB
+db.User.insert({
+	name: "Jane",
+	dateOfBirth: "1990-02-15T00:00:00Z",
+	subject: ["Application frameworks", "Computer architecture"],
+	isActive: false
+
+})
+
+//Find documents with parameters
+db.User.find({
+	name: "Smith",
+	isActive: true,
+})
+
+/*
+	with the following query we can also add a new attribute and change
+	the value of a existing attribute.
+*/
+db.User.update(
+    {name: "John"},
+    { 
+        $set : { 
+            "isActive" : false 
+        } 
+    },
+    {
+        multi: true
+    }
+);
+
+//Delete object from the database in MongoDB
+db.User.remove( { name: "Due Delete" } );
+/*
+	'DeprecationWarning: Collection.remove() is deprecated. 
+	Use deleteOne, deleteMany or bulkWrite.'
+*/
+
+//Add more commands to this command base following the YT video.
+
