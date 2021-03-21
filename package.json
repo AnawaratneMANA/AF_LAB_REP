@@ -1,0 +1,19 @@
+{
+  "name": "nodejslab",
+  "version": "1.0.0",
+  "description": "lab_temporary_file",
+  "main": "Node-File-Collection/index_file_handling.js",
+  "scripts": {
+    "start": "node index",
+    "dev": "nodemon index"
+  },
+  "keywords": [
+    "lab"
+  ],
+  "author": "nirmith-akash",
+  "license": "ISC",
+  "dependencies": {
+    "uuid": "^8.3.2",
+    "nodemon": "^1.18.9"
+  }
+}
