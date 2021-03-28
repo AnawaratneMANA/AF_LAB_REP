@@ -33,4 +33,6 @@ first_method().then(
  *
  * In the Fully Promise method.
  * Here the thing is .then can be used only with return statement that    * returns a Promise object. then -> function(){} this the nesting pattern.
+ *
+ * This kind of promise chaining are used to add parameters to request URLs in synchronize manner.
  **/
