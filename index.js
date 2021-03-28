@@ -1,4 +1,4 @@
-//setters and getters
+// setters and getters
 class Square{
     area = 0;
     constructor(length) {
