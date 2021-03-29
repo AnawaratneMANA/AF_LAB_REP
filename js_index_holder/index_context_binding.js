@@ -2,9 +2,9 @@
 var vehicleName = "Toyota"
 //simple function
 function printVehicleName(){
-    document.getElementById
-    ("paragraph1").innerHTML
-        = this.vehicleName
+    // document.getElementById
+    // ("paragraph1").innerHTML
+    //     = this.vehicleName
 }
 
 //Variable inside object.
@@ -19,7 +19,7 @@ var car = {
 
 printVehicleName()
 var execute = car.printName()
-execute = execute.bind(this.car)
+execute = execute.bind(car) //Don't add this.car here
 execute();
 /*
 Right now this is the most outer object
