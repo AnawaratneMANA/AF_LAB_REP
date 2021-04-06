@@ -13,9 +13,9 @@ let createPost = async (obj) => {
      */
     let post  = {
         id: uuid.v4(),
-        date: new Date(),
         name: obj.name,
-        description: obj.description
+        description: obj.description,
+        date: new Date()
     };
     //Adding the post to the posts Map
     await save(post);
