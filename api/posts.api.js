@@ -1,8 +1,11 @@
-let posts = new Map(); //Global Map Obeject.
+
+//Replace the Map with database.
+const {save} = require('../dal/post_dao');
+
 const uuid = require('uuid'); //Generate a random key.
 
 //Create a single post when call this method.
-let createPost = (obj) => {
+let createPost = async (obj) => {
 
     /**
      * Here we don't have to pass anything from the URL
@@ -15,7 +18,7 @@ let createPost = (obj) => {
         description: obj.description
     };
     //Adding the post to the posts Map
-    posts.set(post.id, post);
+    await save(post);
     return post;
 }
 

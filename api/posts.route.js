@@ -10,9 +10,9 @@ router.get('/', ctx=> {
     ctx.body = getPosts();
 });
 
-router.post('/', ctx=> {
+router.post('/', async ctx=> {
     let post = ctx.request.body;
-    post = createPost(post);
+    post = await createPost(post);
     ctx.response.status = 201;
     ctx.body = post;
 });

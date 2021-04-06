@@ -6,10 +6,22 @@ const bodyParser = require('koa-bodyparser');
 const HomeRoute = require('./home.router');
 const PostRoute = require('./api/posts.route');
 
+//Importing the client to the main file
+const {run} = require('./dal');
 
 
 //Creating the Koa application
 const app = new Koa();
+
+//Connect to the database.
+run().then(r => {
+    if(r){
+        console.error(r);
+        process.exit(-1);
+    }
+});
+
+
 
 //Registering the body-parser.
 app.use(bodyParser());
