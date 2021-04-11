@@ -1,0 +1,4 @@
+//Install the Parcel.
+npm install --save-dev parcel@next
+//Install the React DOM.
+npm install react react-dom --save
