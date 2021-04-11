@@ -2,9 +2,6 @@ import React from 'react';
 export default class Post extends React.Component {
     constructor(props) {
         super(props);
-        this.state ={
-            post: null
-        }
     }
     render() {
         const {post} = this.props;
@@ -19,13 +16,6 @@ export default class Post extends React.Component {
                 <p>Description: {post.description}</p>
             </div>
         </div>;
-    }
-
-    //Adding a Method to Add Posts
-    selectPost(post){
-        this.setState({
-            post: post
-        })
     }
 }
 

@@ -26542,11 +26542,21 @@ try {
   var _reactDefault = _parcelHelpers.interopDefault(_react);
   var _funCompPostListItem = require('./funCompPostListItem');
   var _funCompPostListItemDefault = _parcelHelpers.interopDefault(_funCompPostListItem);
-  require("./PostSecond");
+  var _showPost = require("./showPost");
+  var _showPostDefault = _parcelHelpers.interopDefault(_showPost);
   var _jsxFileName = "I:\\Project_JS_Based\\ReactJS\\LAB\\LAB_6\\components\\posts.jsx";
   class Posts extends _reactDefault.default.Component {
     constructor(props) {
       super(props);
+      this.state = {
+        post: null
+      };
+    }
+    /*Adding a Method to Add Posts*/
+    selectPost(post) {
+      this.setState({
+        post: post
+      });
     }
     render() {
       const {posts} = this.props;
@@ -26555,56 +26565,56 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 12,
+            lineNumber: 22,
             columnNumber: 16
           }
         }, /*#__PURE__*/_reactDefault.default.createElement("table", {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 13,
+            lineNumber: 23,
             columnNumber: 13
           }
         }, /*#__PURE__*/_reactDefault.default.createElement("thead", {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 14,
+            lineNumber: 24,
             columnNumber: 17
           }
         }, /*#__PURE__*/_reactDefault.default.createElement("tr", {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 15,
+            lineNumber: 25,
             columnNumber: 17
           }
         }, /*#__PURE__*/_reactDefault.default.createElement("th", {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 16,
+            lineNumber: 26,
             columnNumber: 21
           }
         }, "ID"), /*#__PURE__*/_reactDefault.default.createElement("th", {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 17,
+            lineNumber: 27,
             columnNumber: 21
           }
         }, "Name"), /*#__PURE__*/_reactDefault.default.createElement("th", {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 18,
+            lineNumber: 28,
             columnNumber: 21
           }
         }, "Description"))), /*#__PURE__*/_reactDefault.default.createElement("tbody", {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 21,
+            lineNumber: 31,
             columnNumber: 17
           }
         }, posts.map(post => {
@@ -26612,15 +26622,31 @@ try {
             /*#__PURE__*/_reactDefault.default.createElement(_funCompPostListItemDefault.default, {
               key: post.id.toString(),
               post: post,
+              selectPost: post => this.selectPost(post),
               __self: this,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 23,
+                lineNumber: 33,
                 columnNumber: 28
               }
             })
           );
-        }))))
+        }))), /*#__PURE__*/_reactDefault.default.createElement("div", {
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 40,
+            columnNumber: 13
+          }
+        }, this.state.post ? /*#__PURE__*/_reactDefault.default.createElement(_showPostDefault.default, {
+          post: this.state.post,
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 41,
+            columnNumber: 36
+          }
+        }) : ''))
       );
     }
   }
@@ -26631,7 +26657,7 @@ try {
   window.$RefreshSig$ = prevRefreshSig;
 }
 
-},{"react":"3b2NM","./funCompPostListItem":"5hwuR","./PostSecond":"3aPSW","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"5hwuR":[function(require,module,exports) {
+},{"react":"3b2NM","./funCompPostListItem":"5hwuR","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f","./showPost":"7evoV"}],"5hwuR":[function(require,module,exports) {
 var helpers = require("../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -26643,7 +26669,7 @@ try {
   var _reactDefault = _parcelHelpers.interopDefault(_react);
   var _jsxFileName = "I:\\Project_JS_Based\\ReactJS\\LAB\\LAB_6\\components\\funCompPostListItem.jsx";
   function PostListItem(props) {
-    const {post} = props;
+    const {post, selectPost} = props;
     return (
       /*#__PURE__*/_reactDefault.default.createElement("tr", {
         __self: this,
@@ -26673,7 +26699,22 @@ try {
           lineNumber: 7,
           columnNumber: 9
         }
-      }, post.description))
+      }, post.description), /*#__PURE__*/_reactDefault.default.createElement("td", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 8,
+          columnNumber: 9
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement("a", {
+        onClick: () => selectPost(post),
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 8,
+          columnNumber: 13
+        }
+      }, "Select")))
     );
   }
   exports.default = PostListItem;
@@ -26686,7 +26727,7 @@ try {
   window.$RefreshSig$ = prevRefreshSig;
 }
 
-},{"react":"3b2NM","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"3aPSW":[function(require,module,exports) {
+},{"react":"3b2NM","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"7evoV":[function(require,module,exports) {
 var helpers = require("../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -26696,13 +26737,10 @@ try {
   _parcelHelpers.defineInteropFlag(exports);
   var _react = require('react');
   var _reactDefault = _parcelHelpers.interopDefault(_react);
-  var _jsxFileName = "I:\\Project_JS_Based\\ReactJS\\LAB\\LAB_6\\components\\PostSecond.jsx";
+  var _jsxFileName = "I:\\Project_JS_Based\\ReactJS\\LAB\\LAB_6\\components\\showPost.jsx";
   class Post extends _reactDefault.default.Component {
     constructor(props) {
       super(props);
-      this.state = {
-        post: null
-      };
     }
     render() {
       const {post} = this.props;
@@ -26711,10 +26749,24 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 11,
+            lineNumber: 8,
             columnNumber: 16
           }
         }, /*#__PURE__*/_reactDefault.default.createElement("div", {
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 9,
+            columnNumber: 13
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement("p", {
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 10,
+            columnNumber: 17
+          }
+        }, "ID: ", post.id)), /*#__PURE__*/_reactDefault.default.createElement("div", {
           __self: this,
           __source: {
             fileName: _jsxFileName,
@@ -26728,7 +26780,7 @@ try {
             lineNumber: 13,
             columnNumber: 17
           }
-        }, "ID: ", post.id)), /*#__PURE__*/_reactDefault.default.createElement("div", {
+        }, "Name: ", post.name)), /*#__PURE__*/_reactDefault.default.createElement("div", {
           __self: this,
           __source: {
             fileName: _jsxFileName,
@@ -26742,28 +26794,8 @@ try {
             lineNumber: 16,
             columnNumber: 17
           }
-        }, "Name: ", post.name)), /*#__PURE__*/_reactDefault.default.createElement("div", {
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 18,
-            columnNumber: 13
-          }
-        }, /*#__PURE__*/_reactDefault.default.createElement("p", {
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 19,
-            columnNumber: 17
-          }
         }, "Description: ", post.description)))
       );
-    }
-    /*Adding a Method to Add Posts*/
-    selectPost(post) {
-      this.setState({
-        post: post
-      });
     }
   }
   exports.default = Post;
