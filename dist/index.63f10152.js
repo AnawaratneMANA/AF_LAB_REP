@@ -26479,8 +26479,8 @@ try {
   _parcelHelpers.defineInteropFlag(exports);
   var _react = require('react');
   var _reactDefault = _parcelHelpers.interopDefault(_react);
-  var _posts = require("./posts");
-  var _postsDefault = _parcelHelpers.interopDefault(_posts);
+  var _componentsPosts = require("./components/posts");
+  var _componentsPostsDefault = _parcelHelpers.interopDefault(_componentsPosts);
   var _jsxFileName = "I:\\Project_JS_Based\\ReactJS\\LAB\\LAB_6\\app.jsx";
   const posts = [{
     id: 1,
@@ -26511,7 +26511,7 @@ try {
             lineNumber: 23,
             columnNumber: 13
           }
-        }, " Hello to React "), /*#__PURE__*/_reactDefault.default.createElement(_postsDefault.default, {
+        }, " Hello to React "), /*#__PURE__*/_reactDefault.default.createElement(_componentsPostsDefault.default, {
           posts: posts,
           __self: this,
           __source: {
@@ -26530,8 +26530,8 @@ try {
   window.$RefreshSig$ = prevRefreshSig;
 }
 
-},{"react":"3b2NM","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","./node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f","./posts":"6zpIl"}],"6zpIl":[function(require,module,exports) {
-var helpers = require("./node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+},{"react":"3b2NM","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","./node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f","./components/posts":"7wfqz"}],"7wfqz":[function(require,module,exports) {
+var helpers = require("../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
 helpers.prelude(module);
@@ -26542,7 +26542,8 @@ try {
   var _reactDefault = _parcelHelpers.interopDefault(_react);
   var _funCompPostListItem = require('./funCompPostListItem');
   var _funCompPostListItemDefault = _parcelHelpers.interopDefault(_funCompPostListItem);
-  var _jsxFileName = "I:\\Project_JS_Based\\ReactJS\\LAB\\LAB_6\\posts.jsx";
+  require("./PostSecond");
+  var _jsxFileName = "I:\\Project_JS_Based\\ReactJS\\LAB\\LAB_6\\components\\posts.jsx";
   class Posts extends _reactDefault.default.Component {
     constructor(props) {
       super(props);
@@ -26554,56 +26555,56 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 11,
+            lineNumber: 12,
             columnNumber: 16
           }
         }, /*#__PURE__*/_reactDefault.default.createElement("table", {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 12,
+            lineNumber: 13,
             columnNumber: 13
           }
         }, /*#__PURE__*/_reactDefault.default.createElement("thead", {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 13,
+            lineNumber: 14,
             columnNumber: 17
           }
         }, /*#__PURE__*/_reactDefault.default.createElement("tr", {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 14,
+            lineNumber: 15,
             columnNumber: 17
           }
         }, /*#__PURE__*/_reactDefault.default.createElement("th", {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 15,
+            lineNumber: 16,
             columnNumber: 21
           }
         }, "ID"), /*#__PURE__*/_reactDefault.default.createElement("th", {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 16,
+            lineNumber: 17,
             columnNumber: 21
           }
         }, "Name"), /*#__PURE__*/_reactDefault.default.createElement("th", {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 17,
+            lineNumber: 18,
             columnNumber: 21
           }
         }, "Description"))), /*#__PURE__*/_reactDefault.default.createElement("tbody", {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 20,
+            lineNumber: 21,
             columnNumber: 17
           }
         }, posts.map(post => {
@@ -26614,7 +26615,7 @@ try {
               __self: this,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 22,
+                lineNumber: 23,
                 columnNumber: 28
               }
             })
@@ -26630,8 +26631,8 @@ try {
   window.$RefreshSig$ = prevRefreshSig;
 }
 
-},{"react":"3b2NM","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","./node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f","./funCompPostListItem":"2EWum"}],"2EWum":[function(require,module,exports) {
-var helpers = require("./node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+},{"react":"3b2NM","./funCompPostListItem":"5hwuR","./PostSecond":"3aPSW","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"5hwuR":[function(require,module,exports) {
+var helpers = require("../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
 helpers.prelude(module);
@@ -26640,7 +26641,7 @@ try {
   _parcelHelpers.defineInteropFlag(exports);
   var _react = require('react');
   var _reactDefault = _parcelHelpers.interopDefault(_react);
-  var _jsxFileName = "I:\\Project_JS_Based\\ReactJS\\LAB\\LAB_6\\funCompPostListItem.jsx";
+  var _jsxFileName = "I:\\Project_JS_Based\\ReactJS\\LAB\\LAB_6\\components\\funCompPostListItem.jsx";
   function PostListItem(props) {
     const {post} = props;
     return (
@@ -26685,6 +26686,93 @@ try {
   window.$RefreshSig$ = prevRefreshSig;
 }
 
-},{"react":"3b2NM","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","./node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}]},["1j6wU","3L2qK","5Qvcc"], "5Qvcc", "parcelRequirea70a")
+},{"react":"3b2NM","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"3aPSW":[function(require,module,exports) {
+var helpers = require("../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+  _parcelHelpers.defineInteropFlag(exports);
+  var _react = require('react');
+  var _reactDefault = _parcelHelpers.interopDefault(_react);
+  var _jsxFileName = "I:\\Project_JS_Based\\ReactJS\\LAB\\LAB_6\\components\\PostSecond.jsx";
+  class Post extends _reactDefault.default.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        post: null
+      };
+    }
+    render() {
+      const {post} = this.props;
+      return (
+        /*#__PURE__*/_reactDefault.default.createElement("div", {
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 11,
+            columnNumber: 16
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement("div", {
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 12,
+            columnNumber: 13
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement("p", {
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 13,
+            columnNumber: 17
+          }
+        }, "ID: ", post.id)), /*#__PURE__*/_reactDefault.default.createElement("div", {
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 15,
+            columnNumber: 13
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement("p", {
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 16,
+            columnNumber: 17
+          }
+        }, "Name: ", post.name)), /*#__PURE__*/_reactDefault.default.createElement("div", {
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 18,
+            columnNumber: 13
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement("p", {
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 19,
+            columnNumber: 17
+          }
+        }, "Description: ", post.description)))
+      );
+    }
+    /*Adding a Method to Add Posts*/
+    selectPost(post) {
+      this.setState({
+        post: post
+      });
+    }
+  }
+  exports.default = Post;
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+
+},{"react":"3b2NM","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}]},["1j6wU","3L2qK","5Qvcc"], "5Qvcc", "parcelRequirea70a")
 
 //# sourceMappingURL=index.63f10152.js.map

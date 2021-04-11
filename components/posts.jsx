@@ -1,5 +1,6 @@
 import React from 'react';
 import PostListItem from './funCompPostListItem';
+import Post from "./PostSecond";
 
 export default class Posts extends React.Component {
     constructor(props) {
