@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 export default class AddPost extends React.Component{
     constructor(props){
         super(props);
@@ -16,6 +17,7 @@ export default class AddPost extends React.Component{
     render(){
         const { save } = this.props;
         return <div>
+            <Link to ="/">Posts</Link>
             <form>
                 <div>
                     <label htmlFor ="name"> Name: </label>
