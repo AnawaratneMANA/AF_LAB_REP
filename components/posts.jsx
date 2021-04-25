@@ -40,7 +40,9 @@ export default class Posts extends React.Component {
             <div>
                 {this.state.post ? <Post post={this.state.post}
                                          /> : ''}
+
             </div>
+
         </div>;
 
     }

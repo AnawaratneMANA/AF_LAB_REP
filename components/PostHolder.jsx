@@ -1,5 +1,6 @@
 import React from 'react';
 import Posts from './Posts';
+import {Link} from "react-router-dom";
 const posts = [
     {
         id: 1,
@@ -21,6 +22,10 @@ export default class PostsHolder extends React.Component {
     }
 
     render() {
-        return <Posts posts={posts}/>;
+        return (<React.Fragment>
+                <Posts posts={posts}/>
+                <Link to ="/add"> Add </Link>
+        </React.Fragment>
+        );
     }
 }
