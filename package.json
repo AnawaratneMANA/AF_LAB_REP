@@ -9,7 +9,8 @@
   "author": "Nirmith_Akash",
   "license": "ISC",
   "devDependencies": {
-    "parcel": "^2.0.0-beta.2"
+    "parcel": "^2.0.0-beta.2",
+    "react-router-dom": "^5.2.0"
   },
   "dependencies": {
     "react": "^17.0.2",
