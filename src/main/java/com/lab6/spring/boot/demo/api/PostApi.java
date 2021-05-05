@@ -3,10 +3,7 @@ package com.lab6.spring.boot.demo.api;
 import com.lab6.spring.boot.demo.domain.Post;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Component
 public class PostApi {
@@ -19,5 +16,11 @@ public class PostApi {
 
     public List<Post> getAllPost() {
         return new ArrayList<>(posts.values());
+    }
+
+    public Post addPost(Post post){
+        post.setId(UUID.randomUUID().toString());
+        posts.put(post.getId(), post);
+        return post;
     }
 }
